@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+
+% Pacotes para configurações adicionais
+\usepackage[margin=1in]{geometry} % Configuração das margens
+\usepackage{fontenc} % Usar a fonte Times New Roman
+\usepackage{setspace} % Espaçamento entre linhas
+\usepackage{sectsty} % Formatação de títulos de seção
+\usepackage{graphicx} % Suporte para inclusão de figuras
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath} % Pacote para equações matemáticas
+
+% Configurações adicionais
+\renewcommand{\familydefault}{\rmdefault} % Definir a fonte padrão como Times New Roman
+\linespread{1.5} % Espaçamento de 1.5 entre linhas
+\allsectionsfont{\sffamily\bfseries} % Títulos de seção em negrito e sem serifa
+
+\title{Lema de Euclides}
+\begin{document}
+
+
+\section{Lema de Euclides}
+\subsection{enunciado}
+Sejam $a$, $b$, $q$ e $r$ $\in \mathbb{Z}$, se $a=bq+r$, então $mdc(a,b)=mdc(b,r)$. $$ $$
+Demonstração:
+Sejam $D_{a}, D_{b}, D_{r}$ os conjuntos de divisores de $a$, $b$ e $r$ respectivamente. Para provarmos que $mdc(a,b)=mdc(b,r)$ basta mostrar que $D_{a} \cap D_{b} = D_{b} \cap D_{r}$, pois, se esses conjuntos forem iguais, então os seus máximos também são iguais. 
+
+Suponha que $d \in D_{a} \cap D_{b}$ , então $d \vert a-qb=r \Rightarrow d \in D_{b} \cap D_{r}$.
+
+Se $d \in D_{b} \cap D_{r}$, então $d \vert bq+r=a \Rightarrow d \in D_{a} \cap D_{b}$.
+
+Logo $D_{a} \cap D_{b} = D_{b} \cap D_{r}$ 
+
+$\square$
+
+\end{document}

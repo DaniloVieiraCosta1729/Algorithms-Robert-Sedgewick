@@ -51,19 +51,19 @@ void binario(int n)
 
     while (n > 0)
     {
-        push((char)((n % 2) + '0'), &binario);
+        push((char)(n % 2), &binario);
         n = n / 2;
     }
 
     while (binario.TOP >= 0)
     {
         char c = pop(&binario);
-        printf("%c", c);
+        printf("%d", c);
     }
 }
 
 int main()
 {
-    binario(15);
+    binario(2);
     return 0;
 }

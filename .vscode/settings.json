@@ -1,6 +1,7 @@
 {
     "files.associations": {
         ".fantomasignore": "ignore",
-        "versaodolivro.h": "c"
+        "versaodolivro.h": "c",
+        "ex04sematoi.h": "c"
     }
 }

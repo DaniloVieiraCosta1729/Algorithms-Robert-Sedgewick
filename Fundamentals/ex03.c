@@ -1,14 +1,14 @@
 // Implement a procedure to reduce a given fraction to lowest terms, using a struct fraction {int numerator; int denominator;}.
 #include <stdio.h>
 
-int mmc(int x, int y)
+int mdc(int x, int y)
 {
     if (x%y == 0)
     {
         return y;
     }
 
-    return mmc(y,x%y);
+    return mdc(y,x%y);
 }
 
 typedef struct
@@ -20,8 +20,8 @@ typedef struct
 Fraction reduceFraction(int x, int y)
 {
     Fraction f;
-    f.numerator = x / mmc(x, y);
-    f.denominator = y / mmc(x, y);
+    f.numerator = x / mdc(x, y);
+    f.denominator = y / mdc(x, y);
     return f;
 }
 

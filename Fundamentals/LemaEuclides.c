@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "VersaoDoLivro.h"
 
-int mmc(int a, int b) // implementação recursiva.
+int mdc(int a, int b) // implementação recursiva.
 {
     if (a%b == 0)
     {
@@ -10,18 +10,18 @@ int mmc(int a, int b) // implementação recursiva.
     
     int r = a%b;
 
-    return mmc(b, r);
+    return mdc(b, r);
 }
 
 void reduz(int a, int b)
 {
-    int maximoDivisor = mmc(a,b);
+    int maximoDivisor = mdc(a,b);
     printf("%d / %d \n", a/maximoDivisor, b/maximoDivisor);
 }
 
 void reduzSedgewick(int a, int b)
 {
-    int maximoDivisor = mmcSedgewick(a,b);
+    int maximoDivisor = mdcSedgewick(a,b);
     printf("%d / %d \n", a/maximoDivisor, b/maximoDivisor);
 }
 

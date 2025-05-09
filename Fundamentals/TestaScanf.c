@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int mmc(int a, int b) // implementação recursiva.
+int mdc(int a, int b) // implementação recursiva.
 {
     if (a%b == 0)
     {
@@ -9,7 +9,7 @@ int mmc(int a, int b) // implementação recursiva.
     
     int r = a%b;
 
-    return mmc(b, r);
+    return mdc(b, r);
 }
 
 int main(int argc, char const *argv[])
@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
     {
         if (x > 0 && y > 0)
         {
-            printf("%d %d %d \n", x, y, mmc(x,y));
+            printf("%d %d %d \n", x, y, mdc(x,y));
         }
         
     }

@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include "bookVersionJosephus.h"
 
 int josephus(int quantity, int step){
 
@@ -61,9 +62,13 @@ int josephus(int quantity, int step){
 
 int main(int argc, char const *argv[])
 {    
-    int resultado = josephus(8, 5);
+    int a = 9;
+    int b = 5;
+    int meuResultado = josephus(a, b);
+    int livroResultado = jose(a, b);
     
-    printf("O problema de Josephus para 7 pessoas, um passo de 3, comecando com na posicao 1 eh: %d\n", resultado);
+    printf("Minha solucao - Josephus(%d,%d) = %d\n", a, b, meuResultado);
+    printf("Solucao livro - Josephus(%d,%d) = %d\n", a, b, livroResultado);
 
     return 0;
 }

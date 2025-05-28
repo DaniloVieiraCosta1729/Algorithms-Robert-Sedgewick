@@ -18,7 +18,7 @@ void initializeList()
     tail->next = tail;
 };
 
-struct node * insertNext(int v, struct node *t)
+struct node * insertNext(int v, struct node *t) // novo para mim: função que retorna um ponteiro para um tipo struct node
 {
     struct node *x;
     x = (struct node *) malloc(sizeof(struct node));

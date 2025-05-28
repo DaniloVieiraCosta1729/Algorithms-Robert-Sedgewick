@@ -4,12 +4,19 @@
  EU SEI QUE O CÓDIGO ABAIXO É MUITO RUIM, mas eu quero testar pointers com esse problema e, depois disso, vou aprender a implementar essa estrutura de forma correta.*/
 
 // O método vai ser por força bruta. Vamos simplesmente passar por todas as pessoas possíveis. 
+// A versão que vai ser resolvida é tal que a contagem começa na própri pessoa que segura a espada, por exemplo, se o passo for 3, então a terceira pessoa é eliminada.
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 
-void josephus(int quantity, int passo){
+int josephus(int quantity, int step){
+
+    if ((quantity == 1) || (step < 0))
+    {
+        return 1;
+    }
+    
 
     struct node
     {
@@ -26,18 +33,37 @@ void josephus(int quantity, int passo){
         (ptr + i)->next = &ptr[(i + 1) % quantity];
     }
 
+    /*
     for (int i = 0; i < quantity; i++)
     {
         printf("-------- Node[%d] --------\nPosition: %d\nEndereco: %p\n\n", i, (ptr + i)->position, (ptr + i)->next);
     }
-    
+    */
     // Vamos resolver esse trem agora.
+
+    struct node * temp;
+    temp = ptr;
+
+    for (int i = quantity; i > 1; i--)
+    {
+        for (int j = 0; j < step - 2; j++)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = temp->next->next;
+        temp = temp->next;        
+    }
+
+    return temp->position;
     
 }
 
 int main(int argc, char const *argv[])
 {    
-    josephus(10, 0);
+    int resultado = josephus(8, 5);
     
+    printf("O problema de Josephus para 7 pessoas, um passo de 3, comecando com na posicao 1 eh: %d\n", resultado);
+
     return 0;
 }

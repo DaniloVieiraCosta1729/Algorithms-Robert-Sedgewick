@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
     printf("Tamanho de badPosition: %zu\n", sizeof(struct badPosition)); // mostra 24 bytes e não 16. 
 
     /*
-    Isso acontece porque o compilador vai dispôr os elementos em da struct em sequência e de modo que eles fiquem adjacentes dois a dois, porém, em uma arquitetura de 64 bits, não é possível colocar um ponteiro imediatamente após um inteiro, pois um ponteiro ocupa 8 bytes (64 bits) e um inteiro ocupa 32 bits. Ou seja, não existe espaço o suficiente para colocar um ponteiro entre o final de x e o começo da próxima "word".
+    Isso acontece porque o compilador vai dispôr os elementos da struct em sequência e de modo que eles fiquem adjacentes dois a dois, porém, em uma arquitetura de 64 bits, não é possível colocar um ponteiro imediatamente após um inteiro, pois um ponteiro ocupa 8 bytes (64 bits) e um inteiro ocupa 32 bits. Ou seja, não existe espaço o suficiente para colocar um ponteiro entre o final de x e o começo da próxima "word".
     
     Como resultado, o compilador preenche esse espaço com 4 bytes. Esses bytes não ficaram disponíveis para o sistema, a gente até consegue acessar com ponteiros, por exemplo, char * p = (char *)&estrutura; (p + 4) é o começo do padding (preenchimento).
 
@@ -52,6 +52,6 @@ int main(int argc, char const *argv[])
     printf("offset de x: %zu\n", offsetof(struct badPosition, x)); 
     printf("offset de y: %zu\n", offsetof(struct badPosition, y));
     printf("offset de ptr: %zu\n", offsetof(struct badPosition, ptr));
-
+    
     return 0;
 }
